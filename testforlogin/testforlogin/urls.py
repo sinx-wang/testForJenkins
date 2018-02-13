@@ -1,4 +1,4 @@
-"""testProject URL Configuration
+"""testforlogin URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -16,13 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
-from . import view
-from blog import views as blog_views
+from users import views
 
 urlpatterns = [
-    # url(r'^admin/', include(admin.site.urls)),
-    path('', blog_views.blog_index),
     path('admin/', admin.site.urls),
-    # url(r'^blog/$', 'blog.views.blog_index', name='blog_index'),
-    # url(r'^$', view.hello)
+    url(r'^users/', include('users.urls')),
+    url(r'^users/', include('django.contrib.auth.urls')),
+    url(r'^$', views.index, name='index')
 ]

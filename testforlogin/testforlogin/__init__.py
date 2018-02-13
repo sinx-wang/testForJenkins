@@ -1,7 +1,7 @@
 import pymysql
 pymysql.install_as_MySQLdb()
 
-db = pymysql.connect("localhost", "root", "1234", "users")
+db = pymysql.connect("localhost", "root", "1234", "userInfo")
 
 cursor = db.cursor()
 
